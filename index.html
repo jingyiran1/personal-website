@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jingyi Ran — Product Data Scientist</title>
+  <title>Jingyi Ran — Data Scientist</title>
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -70,9 +70,9 @@
       letter-spacing: 0.02em;
     }
 
-    .nav-links { display: flex; gap: 2rem; }
+    .nav-links { display: flex; gap: 1.6rem; }
     .nav-links a {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 500;
       letter-spacing: 0.06em;
       text-transform: uppercase;
@@ -127,7 +127,7 @@
       max-width: 980px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 340px;
+      grid-template-columns: 1fr 300px;
       gap: 4rem;
       align-items: center;
     }
@@ -164,12 +164,14 @@
     .hero h1 span { color: var(--terracotta); }
 
     .hero-bio {
-      font-size: 1.08rem;
+      font-size: 1rem;
       color: var(--warm-gray);
       max-width: 520px;
       margin-bottom: 2.2rem;
       line-height: 1.8;
     }
+
+    .hero-bio p + p { margin-top: 0.85rem; }
 
     .hero-stats {
       display: flex;
@@ -196,56 +198,36 @@
       align-items: center;
     }
 
-    .hero-avatar {
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #E09070 0%, #C4704A 40%, #8B5E3C 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      box-shadow: 0 20px 60px rgba(196,112,74,0.25);
-    }
-
-    .hero-avatar::after {
-      content: '';
-      position: absolute;
-      inset: -6px;
-      border-radius: 50%;
-      border: 2px dashed rgba(196,112,74,0.3);
-    }
-
-    .hero-avatar-inner {
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.15);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,0.9);
-      font-size: 4.5rem;
-    }
-
-    .hero-avatar-inner span {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.85rem;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      margin-top: 0.5rem;
-      opacity: 0.8;
+    .hero-photo {
+      width: 300px;
+      height: 380px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      -webkit-mask-image: radial-gradient(ellipse 88% 92% at 50% 46%, black 52%, rgba(0,0,0,0.6) 70%, transparent 100%);
+      mask-image: radial-gradient(ellipse 88% 92% at 50% 46%, black 52%, rgba(0,0,0,0.6) 70%, transparent 100%);
     }
 
     /* ── JOURNEY ── */
     #journey { background: var(--section-bg); }
 
-    .journey-grid {
+    .dual-timeline-wrap {
       display: grid;
-      grid-template-columns: 1fr 360px;
-      gap: 4rem;
+      grid-template-columns: 1fr 1fr 320px;
+      gap: 2.5rem;
       align-items: start;
+    }
+
+    .timeline-column h3 {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 1.8rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid var(--terra-pale);
     }
 
     .timeline { position: relative; padding-left: 2.5rem; }
@@ -260,7 +242,7 @@
 
     .timeline-item {
       position: relative;
-      margin-bottom: 2.8rem;
+      margin-bottom: 2.6rem;
     }
 
     .timeline-dot {
@@ -285,10 +267,11 @@
 
     .timeline-role {
       font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 600;
       color: var(--charcoal);
       margin-bottom: 0.2rem;
+      line-height: 1.3;
     }
 
     .timeline-loc {
@@ -300,12 +283,55 @@
     .timeline-loc::before { content: '📍 '; }
 
     .timeline-desc {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       color: var(--warm-gray);
       line-height: 1.6;
     }
 
-    /* World map SVG */
+    .timeline-overlap-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: #FFF3E8;
+      color: var(--terracotta);
+      font-size: 0.67rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.18rem 0.55rem;
+      border-radius: 100px;
+      border: 1px solid var(--terra-pale);
+      margin-bottom: 0.5rem;
+      margin-top: 0.15rem;
+      display: block;
+      width: fit-content;
+    }
+
+    .timeline-subroles {
+      list-style: none;
+      padding: 0;
+      margin-top: 0.7rem;
+      border-left: 2px solid var(--terra-pale);
+      padding-left: 0.85rem;
+    }
+
+    .timeline-subrole {
+      padding: 0.3rem 0;
+      font-size: 0.85rem;
+    }
+
+    .timeline-subrole-title {
+      font-weight: 600;
+      color: var(--charcoal);
+      display: block;
+    }
+
+    .timeline-subrole-period {
+      color: var(--warm-mid);
+      font-size: 0.75rem;
+    }
+
+    /* World map */
     .world-map-wrap {
       background: var(--cream2);
       border: 1px solid var(--sand);
@@ -327,11 +353,66 @@
 
     .world-map-wrap svg { width: 100%; height: auto; display: block; }
 
-    .map-city-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 9px;
-      fill: var(--charcoal);
+    /* ── EXPERTISE ── */
+    #expertise { }
+
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .expertise-card {
+      background: white;
+      border: 1px solid var(--sand);
+      border-radius: 14px;
+      padding: 1.6rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .expertise-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(196,112,74,0.1);
+    }
+
+    .expertise-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--terracotta), var(--terra-lt));
+    }
+
+    .expertise-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
       font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.9rem;
+      line-height: 1.3;
+    }
+
+    .expertise-skills {
+      list-style: none;
+      padding: 0;
+    }
+
+    .expertise-skills li {
+      font-size: 0.83rem;
+      color: var(--warm-gray);
+      padding: 0.22rem 0 0.22rem 1rem;
+      position: relative;
+      line-height: 1.4;
+    }
+
+    .expertise-skills li::before {
+      content: '·';
+      position: absolute;
+      left: 0.25rem;
+      color: var(--terracotta);
+      font-weight: 700;
     }
 
     /* ── WORKOUT DASHBOARD ── */
@@ -443,274 +524,308 @@
       line-height: 1.5;
     }
 
-    /* ── BOOKS ── */
-    #books { }
-
-    .books-grid {
+    /* ── WORKOUT DASHBOARD v2 ── */
+    .workout-top-row {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: 1fr 260px;
       gap: 1.5rem;
-      margin-bottom: 3rem;
+      margin-bottom: 1.5rem;
+      align-items: start;
     }
 
-    .book-card {
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+    }
+
+    .kpi-grid .dash-card { padding: 1.1rem 1.2rem; }
+    .kpi-grid .dash-card-value { font-size: 1.7rem; }
+    .kpi-grid .dash-card-label { font-size: 0.68rem; }
+
+    .studio-chart {
       background: white;
       border: 1px solid var(--sand);
       border-radius: 14px;
-      padding: 1.5rem;
-      display: flex;
-      gap: 1rem;
-      transition: transform 0.2s, box-shadow 0.2s;
+      padding: 1.6rem;
+      position: relative;
+      overflow: hidden;
     }
 
-    .book-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(196,112,74,0.12);
+    .studio-chart::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--terracotta), var(--terra-lt));
     }
 
-    .book-spine {
-      width: 52px;
-      min-width: 52px;
-      height: 80px;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-    }
-
-    .book-info { flex: 1; }
-
-    .book-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--charcoal);
-      margin-bottom: 0.25rem;
-      line-height: 1.3;
-    }
-
-    .book-author {
-      font-size: 0.78rem;
-      color: var(--warm-mid);
-      margin-bottom: 0.4rem;
-    }
-
-    .book-stars { color: var(--terracotta); font-size: 0.85rem; margin-bottom: 0.4rem; }
-
-    .book-reflection {
-      font-size: 0.82rem;
-      color: var(--warm-gray);
-      line-height: 1.5;
-      margin-bottom: 0.5rem;
-    }
-
-    .book-tag {
-      display: inline-block;
-      background: var(--terra-pale);
-      color: var(--terracotta);
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 0.2rem 0.6rem;
-      border-radius: 100px;
-    }
-
-    /* Word cloud */
-    .wordcloud-wrap {
-      background: white;
-      border: 1px solid var(--sand);
-      border-radius: 14px;
-      padding: 2rem;
-    }
-
-    .wordcloud-wrap h4 {
+    .studio-chart-title {
       font-family: 'Inter', sans-serif;
       font-size: 0.82rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--warm-mid);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.3rem;
     }
 
-    .wordcloud {
+    .studio-bar-row {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
       align-items: center;
-      justify-content: center;
-      padding: 1rem;
+      gap: 0.65rem;
+      margin-bottom: 0.75rem;
     }
 
-    .word-chip {
-      background: var(--cream2);
-      color: var(--charcoal);
-      border-radius: 100px;
-      font-weight: 500;
-      transition: background 0.2s;
-      cursor: default;
+    .studio-bar-label {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      width: 175px;
+      flex-shrink: 0;
+      font-size: 0.82rem;
     }
-    .word-chip:hover { background: var(--terra-pale); color: var(--terracotta); }
+
+    .studio-bar-label img {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    .studio-bar-label a {
+      color: var(--charcoal);
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .studio-bar-label a:hover { color: var(--terracotta); }
+
+    .studio-bar-track {
+      flex: 1;
+      background: var(--cream2);
+      border-radius: 100px;
+      height: 9px;
+      overflow: hidden;
+    }
+
+    .studio-bar-fill {
+      height: 100%;
+      border-radius: 100px;
+      background: linear-gradient(90deg, var(--terracotta), var(--terra-lt));
+      transition: width 0.4s ease;
+    }
+
+    .studio-bar-count {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--terracotta);
+      width: 26px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .dash-card-badge.neg { background: #FEE8E8; color: #B03030; }
+
+    /* ── TENNIS ── */
+    #tennis { }
+
+    .tennis-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .tennis-gallery-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid var(--sand);
+      display: block;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .tennis-gallery-img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 12px 30px rgba(196,112,74,0.15);
+    }
+
+    .tennis-text {
+      font-size: 1rem;
+      color: var(--warm-gray);
+      line-height: 1.85;
+      max-width: 780px;
+    }
+
+    .tennis-text p + p { margin-top: 1.1rem; }
 
     /* ── FOODIE MAP ── */
     #foodie { }
 
     #restaurant-map {
-      height: 460px;
+      height: 420px;
       border-radius: 16px;
       overflow: hidden;
       border: 1px solid var(--sand);
-      margin-bottom: 2rem;
+      margin-bottom: 1.25rem;
     }
 
-    .foodie-bottom {
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 2rem;
-      align-items: start;
-    }
-
-    .restaurant-list { }
-
-    .restaurant-item {
+    .map-legend {
       display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 0.9rem 0;
-      border-bottom: 1px solid var(--cream2);
-    }
-
-    .restaurant-item:last-child { border-bottom: none; }
-
-    .rest-emoji { font-size: 1.6rem; }
-
-    .rest-name {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--charcoal);
-    }
-
-    .rest-meta {
-      font-size: 0.8rem;
-      color: var(--warm-gray);
-    }
-
-    .rest-rating { margin-left: auto; color: var(--terracotta); font-size: 0.85rem; }
-
-    .donut-wrap {
+      flex-wrap: wrap;
+      gap: 0.6rem 1.4rem;
+      margin-bottom: 2rem;
+      padding: 0.85rem 1.2rem;
       background: white;
       border: 1px solid var(--sand);
-      border-radius: 14px;
-      padding: 1.5rem;
+      border-radius: 12px;
     }
 
-    .donut-wrap h4 {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--warm-mid);
-      margin-bottom: 1rem;
-    }
-
-    /* ── PARTNER ── */
-    #partner { }
-
-    .partner-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
-
-    #partner-map {
-      height: 380px;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid var(--sand);
-    }
-
-    .partner-timeline { }
-
-    .partner-timeline h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: var(--charcoal);
-    }
-
-    .partner-desc {
-      font-size: 0.95rem;
-      color: var(--warm-gray);
-      margin-bottom: 2rem;
-      line-height: 1.7;
-    }
-
-    .milestone-list { }
-
-    .milestone-item {
-      display: flex;
-      gap: 1.2rem;
-      margin-bottom: 1.5rem;
-      align-items: flex-start;
-    }
-
-    .milestone-icon {
-      width: 38px; height: 38px;
-      min-width: 38px;
-      border-radius: 50%;
-      background: var(--terra-pale);
+    .legend-item {
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
+      gap: 0.45rem;
+      font-size: 0.82rem;
+      color: var(--warm-gray);
+      font-weight: 500;
     }
 
-    .milestone-date {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+    .legend-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      border: 2px solid white;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+      flex-shrink: 0;
+    }
+
+    .foodie-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .foodie-tab {
+      padding: 0.5rem 1.1rem;
+      border-radius: 100px;
+      border: 1.5px solid var(--sand);
+      background: white;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--warm-gray);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .foodie-tab:hover {
+      border-color: var(--terracotta);
       color: var(--terracotta);
     }
 
-    .milestone-text {
-      font-size: 0.92rem;
+    .foodie-tab.active {
+      background: var(--terracotta);
+      border-color: var(--terracotta);
+      color: white;
+    }
+
+    .foodie-panel { display: none; }
+
+    .foodie-panel.active {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .rest-card {
+      background: white;
+      border: 1px solid var(--sand);
+      border-radius: 14px;
+      padding: 1.2rem 1.4rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .rest-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(196,112,74,0.12);
+    }
+
+    .rest-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .rest-card-emoji { font-size: 1.25rem; }
+
+    .rest-card-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--charcoal);
+      text-decoration: none;
+    }
+
+    .rest-card-name:hover {
+      color: var(--terracotta);
+      text-decoration: underline;
+    }
+
+    .rest-card-note {
+      font-size: 0.78rem;
       color: var(--warm-gray);
       line-height: 1.5;
     }
 
-    .partner-link-card {
-      margin-top: 2rem;
-      background: white;
-      border: 1px solid var(--sand);
-      border-radius: 12px;
-      padding: 1.2rem 1.4rem;
+    /* ── CONTACT ── */
+    #contact { text-align: center; }
+
+    .contact-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-desc {
+      font-size: 1rem;
+      color: var(--warm-gray);
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 0.75rem;
+      background: white;
+      border: 1px solid var(--sand);
+      border-radius: 14px;
+      padding: 1.2rem 2rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, color 0.2s;
+      min-width: 220px;
+      justify-content: center;
     }
 
-    .partner-link-card span {
-      font-size: 0.9rem;
-      color: var(--warm-gray);
-    }
-
-    .partner-link-card a {
-      font-size: 0.85rem;
-      font-weight: 600;
+    .contact-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(196,112,74,0.15);
+      border-color: var(--terracotta);
       color: var(--terracotta);
-      border: 1px solid var(--terracotta);
-      padding: 0.35rem 0.9rem;
-      border-radius: 100px;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    .partner-link-card a:hover {
-      background: var(--terracotta);
-      color: white;
       text-decoration: none;
     }
 
@@ -780,11 +895,7 @@
       margin-bottom: 2px;
     }
 
-    .popup-meta {
-      font-size: 0.8rem;
-      color: var(--warm-gray);
-    }
-
+    .popup-meta { font-size: 0.8rem; color: var(--warm-gray); }
     .popup-rating { color: var(--terracotta); font-size: 0.8rem; }
 
     /* ── Responsive ── */
@@ -794,15 +905,19 @@
       section { padding: 70px 1.5rem 60px; }
       .hero-inner { grid-template-columns: 1fr; }
       .hero-img-wrap { order: -1; }
-      .hero-avatar { width: 180px; height: 180px; }
-      .hero-avatar-inner { width: 150px; height: 150px; }
+      .hero-photo { width: 220px; height: 270px; }
       .hero h1 { font-size: 2.2rem; }
-      .journey-grid { grid-template-columns: 1fr; }
+      .dual-timeline-wrap { grid-template-columns: 1fr; }
+      .world-map-wrap { position: static; }
+      .expertise-grid { grid-template-columns: 1fr; }
+      .workout-top-row { grid-template-columns: 1fr; }
+      .kpi-grid { grid-template-columns: 1fr 1fr; }
       .dashboard-grid { grid-template-columns: 1fr 1fr; }
       .commentary-grid { grid-template-columns: 1fr; }
-      .foodie-bottom { grid-template-columns: 1fr; }
-      .partner-grid { grid-template-columns: 1fr; }
-      .books-grid { grid-template-columns: 1fr; }
+      .tennis-gallery { grid-template-columns: 1fr; }
+      .foodie-panel.active { grid-template-columns: 1fr; }
+      .contact-links { flex-direction: column; align-items: center; }
+      .contact-link { min-width: unset; width: 100%; max-width: 320px; }
     }
   </style>
 </head>
@@ -814,10 +929,11 @@
   <div class="nav-links">
     <a href="#hero">Home</a>
     <a href="#journey">Journey</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#tennis">Tennis</a>
     <a href="#workout">Workout</a>
-    <a href="#books">Books</a>
     <a href="#foodie">Eats</a>
-    <a href="#partner">Us</a>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
@@ -825,11 +941,14 @@
 <section id="hero">
   <div class="hero-inner">
     <div class="hero">
-      <div class="hero-tag">Product Data Scientist</div>
+      <div class="hero-tag">Data Scientist</div>
       <h1>Hi, I'm<br /><span>Jingyi Ran</span> ✦</h1>
-      <p class="hero-bio">
-        I'm a data scientist who believes the most interesting questions live at the intersection of numbers and people. By day I build product analytics and measurement frameworks; by night I'm probably reading about behavioral psychology, trying a new workout class, or tracking down the best bowl of noodles in New York City. I moved from China to Pittsburgh to New York, collecting perspectives along the way — and I'm still curious about what comes next.
-      </p>
+      <div class="hero-bio">
+        <p>Hi, I'm Jingyi — a human on the earth.</p>
+        <p>I love a life blended with different cultures and experiences. I've called many places home: born and raised in Chongqing, China, moved to Pittsburgh to chase my master's degree, and now a New Yorker still figuring out what's possible.</p>
+        <p>From 9 to 5, I'm a data scientist. With 3 years as a data consultant, I turn complex data into decisions that shape real products and marketing experiences — working with Fortune 100 clients through experimental design, performance measurement, predictive modeling, and Gen AI to drive product and customer acquisition growth.</p>
+        <p>Beyond the desk, I'm a fitness explorer — Pilates, Lagree, Barre, Trampoline, Step, HIIT, Yoga... if it exists, I've probably tried it. I'm also a devoted foodie, always hunting for the next great meal in this city.</p>
+      </div>
       <div class="hero-stats">
         <div>
           <div class="hero-stat-num">3+</div>
@@ -837,7 +956,11 @@
         </div>
         <div>
           <div class="hero-stat-num">5+</div>
-          <div class="hero-stat-label">Years in data</div>
+          <div class="hero-stat-label">Years in data science</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">3+</div>
+          <div class="hero-stat-label">Years in consulting</div>
         </div>
         <div>
           <div class="hero-stat-num">∞</div>
@@ -846,12 +969,7 @@
       </div>
     </div>
     <div class="hero-img-wrap">
-      <div class="hero-avatar">
-        <div class="hero-avatar-inner">
-          🌿
-          <span>Jingyi</span>
-        </div>
-      </div>
+      <img class="hero-photo" src="images/bio-photo.JPG" alt="Jingyi Ran" />
     </div>
   </div>
 </section>
@@ -861,94 +979,190 @@
   <div class="section-inner">
     <div class="section-label">My Path</div>
     <h2 class="section-title">The Journey</h2>
-    <p class="section-sub">From electrical engineering labs in China to product analytics in New York — a winding, wonderful pivot.</p>
+    <p class="section-sub">From electrical engineering labs in China to data science in New York — a winding, wonderful pivot.</p>
 
-    <div class="journey-grid">
-      <div class="timeline">
+    <div class="dual-timeline-wrap">
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-year">2013 – 2017 · China</div>
-          <div class="timeline-role">B.S. Electrical Engineering</div>
-          <div class="timeline-loc">China</div>
-          <div class="timeline-desc">Spent four years deep in circuits and signal processing — learning how to think rigorously about systems, which turned out to be the perfect foundation for working with data.</div>
+      <!-- Education (most recent first) -->
+      <div class="timeline-column">
+        <h3>Education</h3>
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">Sep 2021 – Dec 2022</div>
+            <div class="timeline-role">Carnegie Mellon University</div>
+            <div class="timeline-loc">Pittsburgh</div>
+            <div class="timeline-desc">Master of Information Systems Management — Business Intelligence and Data Analytics</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">Sep 2017 – Jul 2021</div>
+            <div class="timeline-role">University of Electronic Science and Technology of China (UESTC)</div>
+            <div class="timeline-loc">China</div>
+            <div class="timeline-desc">Bachelor of Electrical and Electronic Engineering</div>
+          </div>
+
         </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-year">2017 – 2019 · Pittsburgh, PA</div>
-          <div class="timeline-role">M.S. Business Analytics, Carnegie Mellon</div>
-          <div class="timeline-loc">Pittsburgh, Pennsylvania</div>
-          <div class="timeline-desc">Traded resistors for regressions. CMU's Tepper School opened up a new world — statistics, machine learning, and how data actually drives business decisions.</div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-year">2019 – 2022 · New York, NY</div>
-          <div class="timeline-role">Data Scientist, Consulting</div>
-          <div class="timeline-loc">New York, New York</div>
-          <div class="timeline-desc">Worked across industries — from financial services to healthcare — helping clients turn messy data into actionable strategy. Learned that context is everything in analytics.</div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-year">2022 – Present · New York, NY</div>
-          <div class="timeline-role">Product Data Scientist, Tech</div>
-          <div class="timeline-loc">New York, New York</div>
-          <div class="timeline-desc">Now building measurement frameworks, running experiments, and shaping product decisions at scale — the perfect blend of technical depth and human impact.</div>
-        </div>
-
       </div>
 
-      <!-- Simplified World Map SVG -->
+      <!-- Professional Experience (most recent first) -->
+      <div class="timeline-column">
+        <h3>Professional Experience</h3>
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">Dec 2023 – Present</div>
+            <div class="timeline-role">DIA Associates</div>
+            <div class="timeline-loc">New York, NY</div>
+            <ul class="timeline-subroles">
+              <li class="timeline-subrole">
+                <span class="timeline-subrole-title">Associate — Data & Analytics</span>
+                <span class="timeline-subrole-period">Jun 2025 – Present</span>
+              </li>
+              <li class="timeline-subrole">
+                <span class="timeline-subrole-title">Junior Associate — Data & Analytics</span>
+                <span class="timeline-subrole-period">Dec 2024 – Jun 2025</span>
+              </li>
+              <li class="timeline-subrole">
+                <span class="timeline-subrole-title">Analyst — Data & Analytics</span>
+                <span class="timeline-subrole-period">Dec 2023 – Dec 2024</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">Mar 2023 – Oct 2023</div>
+            <div class="timeline-role">Slalom Consulting</div>
+            <div class="timeline-loc">New York, NY</div>
+            <div class="timeline-desc">Associate Consultant — Data & Analytics</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">Jun 2022 – Aug 2022</div>
+            <div class="timeline-role">United States Tennis Association (USTA) <a href="#tennis" onclick="document.getElementById('tennis').scrollIntoView({behavior:'smooth'});return false;" style="text-decoration:none;font-size:1.3em;vertical-align:middle;margin-left:0.3rem;" title="Read my tennis story">🎾</a></div>
+            <div class="timeline-loc">White Plains, NY</div>
+            <div class="timeline-desc">Data Analytics Intern — US Open Analytics</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- World Map (right column) -->
       <div class="world-map-wrap">
-        <h4>Places I've called home</h4>
-        <svg viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg">
-          <!-- Ocean background -->
-          <rect width="600" height="340" fill="#EEE8E0" rx="10"/>
-          <!-- Simplified landmass shapes -->
-          <!-- North America -->
-          <path d="M80,60 L140,50 L180,70 L200,120 L190,180 L170,220 L140,240 L110,230 L90,200 L70,170 L60,130 Z" fill="#D4C5B0" stroke="#C4B09A" stroke-width="1"/>
-          <!-- South America -->
-          <path d="M150,240 L200,230 L220,270 L210,310 L180,330 L155,320 L140,290 L140,260 Z" fill="#D4C5B0" stroke="#C4B09A" stroke-width="1"/>
-          <!-- Europe -->
-          <path d="M270,50 L320,45 L340,65 L330,100 L310,110 L285,105 L265,90 L260,70 Z" fill="#D4C5B0" stroke="#C4B09A" stroke-width="1"/>
-          <!-- Africa -->
-          <path d="M275,115 L330,108 L355,140 L350,200 L330,250 L300,265 L270,250 L255,210 L250,160 L260,130 Z" fill="#D4C5B0" stroke="#C4B09A" stroke-width="1"/>
-          <!-- Asia -->
-          <path d="M340,40 L480,35 L510,70 L520,120 L500,150 L460,165 L420,155 L390,140 L360,120 L340,95 L330,70 Z" fill="#D4C5B0" stroke="#C4B09A" stroke-width="1"/>
-          <!-- China region highlight -->
-          <path d="M420,70 L470,65 L490,90 L485,120 L460,135 L430,125 L415,105 Z" fill="#E09070" opacity="0.35" stroke="#C4704A" stroke-width="1.5"/>
-          <!-- Australia -->
-          <path d="M460,210 L530,205 L550,240 L540,275 L510,290 L475,280 L455,255 L450,230 Z" fill="#D4C5B0" stroke="#C4B09A" stroke-width="1"/>
-
-          <!-- Connection lines (dashed arc approximations) -->
-          <!-- China to Pittsburgh -->
-          <path d="M448,95 Q340,20 158,120" fill="none" stroke="#C4704A" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.7"/>
-          <!-- Pittsburgh to New York -->
-          <path d="M158,120 Q165,115 172,118" fill="none" stroke="#C4704A" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.7"/>
-
-          <!-- City dots -->
-          <!-- China (roughly Chengdu area) -->
-          <circle cx="448" cy="95" r="7" fill="#C4704A" stroke="white" stroke-width="2"/>
-          <!-- Pittsburgh -->
-          <circle cx="158" cy="120" r="7" fill="#C4704A" stroke="white" stroke-width="2"/>
-          <!-- New York -->
-          <circle cx="173" cy="117" r="7" fill="#C4704A" stroke="white" stroke-width="2"/>
-
-          <!-- Labels -->
-          <text x="448" y="88" text-anchor="middle" class="map-city-label" font-size="8" font-family="Inter,sans-serif" fill="#2C2825" font-weight="600">China</text>
-          <text x="148" y="135" text-anchor="middle" class="map-city-label" font-size="8" font-family="Inter,sans-serif" fill="#2C2825" font-weight="600">Pittsburgh</text>
-          <text x="186" y="112" text-anchor="middle" class="map-city-label" font-size="8" font-family="Inter,sans-serif" fill="#2C2825" font-weight="600">New York</text>
-        </svg>
-        <div style="margin-top:1rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
-          <span style="font-size:0.75rem; color:var(--warm-gray);">🇨🇳 China</span>
-          <span style="font-size:0.75rem; color:var(--warm-mid);">→</span>
-          <span style="font-size:0.75rem; color:var(--warm-gray);">🇺🇸 Pittsburgh</span>
-          <span style="font-size:0.75rem; color:var(--warm-mid);">→</span>
-          <span style="font-size:0.75rem; color:var(--terracotta); font-weight:600;">🗽 New York</span>
-        </div>
+      <h4>Places I've called home</h4>
+      <svg viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg">
+        <rect width="600" height="340" fill="#EEE8E0" rx="10"/>
+        <path d="M80,60 L140,50 L180,70 L200,120 L190,180 L170,220 L140,240 L110,230 L90,200 L70,170 L60,130 Z" fill="#D4C5B0" stroke="#C4B09A" stroke-width="1"/>
+        <path d="M150,240 L200,230 L220,270 L210,310 L180,330 L155,320 L140,290 L140,260 Z" fill="#D4C5B0" stroke="#C4B09A" stroke-width="1"/>
+        <path d="M270,50 L320,45 L340,65 L330,100 L310,110 L285,105 L265,90 L260,70 Z" fill="#D4C5B0" stroke="#C4B09A" stroke-width="1"/>
+        <path d="M275,115 L330,108 L355,140 L350,200 L330,250 L300,265 L270,250 L255,210 L250,160 L260,130 Z" fill="#D4C5B0" stroke="#C4B09A" stroke-width="1"/>
+        <path d="M340,40 L480,35 L510,70 L520,120 L500,150 L460,165 L420,155 L390,140 L360,120 L340,95 L330,70 Z" fill="#D4C5B0" stroke="#C4B09A" stroke-width="1"/>
+        <path d="M420,70 L470,65 L490,90 L485,120 L460,135 L430,125 L415,105 Z" fill="#E09070" opacity="0.35" stroke="#C4704A" stroke-width="1.5"/>
+        <path d="M460,210 L530,205 L550,240 L540,275 L510,290 L475,280 L455,255 L450,230 Z" fill="#D4C5B0" stroke="#C4B09A" stroke-width="1"/>
+        <path d="M448,95 Q340,20 158,120" fill="none" stroke="#C4704A" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.7"/>
+        <path d="M158,120 Q165,115 172,118" fill="none" stroke="#C4704A" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.7"/>
+        <circle cx="448" cy="95" r="7" fill="#C4704A" stroke="white" stroke-width="2"/>
+        <circle cx="158" cy="120" r="7" fill="#C4704A" stroke="white" stroke-width="2"/>
+        <circle cx="173" cy="117" r="7" fill="#C4704A" stroke="white" stroke-width="2"/>
+        <text x="448" y="88" text-anchor="middle" font-size="8" font-family="Inter,sans-serif" fill="#2C2825" font-weight="600">China</text>
+        <text x="148" y="135" text-anchor="middle" font-size="8" font-family="Inter,sans-serif" fill="#2C2825" font-weight="600">Pittsburgh</text>
+        <text x="186" y="112" text-anchor="middle" font-size="8" font-family="Inter,sans-serif" fill="#2C2825" font-weight="600">New York</text>
+      </svg>
+      <div style="margin-top:1rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <span style="font-size:0.75rem; color:var(--warm-gray);">🇨🇳 Chongqing, China</span>
+        <span style="font-size:0.75rem; color:var(--warm-mid);">→</span>
+        <span style="font-size:0.75rem; color:var(--warm-gray);">🇺🇸 Pittsburgh</span>
+        <span style="font-size:0.75rem; color:var(--warm-mid);">→</span>
+        <span style="font-size:0.75rem; color:var(--terracotta); font-weight:600;">🗽 New York</span>
       </div>
+    </div><!-- end world-map-wrap -->
+    </div><!-- end dual-timeline-wrap -->
+  </div>
+</section>
+
+<!-- ── EXPERTISE ── -->
+<section id="expertise">
+  <div class="section-inner">
+    <div class="section-label">Skills</div>
+    <h2 class="section-title">Expertise</h2>
+    <p class="section-sub">The methods and tools I use to turn complex data into real decisions.</p>
+
+    <div class="expertise-grid">
+
+      <div class="expertise-card">
+        <div class="expertise-card-title">Experimentation & Measurement</div>
+        <ul class="expertise-skills">
+          <li>A/B Testing & Experiment Design</li>
+          <li>Causal Inference & Attribution Modeling</li>
+          <li>Funnel Analysis & Conversion Optimization</li>
+          <li>Campaign Performance Measurement</li>
+        </ul>
+      </div>
+
+      <div class="expertise-card">
+        <div class="expertise-card-title">Data Science & Analytics</div>
+        <ul class="expertise-skills">
+          <li>Machine Learning & Predictive Modeling</li>
+          <li>Time Series Analysis & Forecasting</li>
+          <li>Customer Segmentation & Cohort Analysis</li>
+          <li>NLP & Text Mining</li>
+        </ul>
+      </div>
+
+      <div class="expertise-card">
+        <div class="expertise-card-title">Product & Growth Analytics</div>
+        <ul class="expertise-skills">
+          <li>Product Growth Strategy</li>
+          <li>Customer Acquisition Analytics</li>
+          <li>OKR Setting & Business Performance Reviews</li>
+          <li>Propensity & LTV Modeling</li>
+        </ul>
+      </div>
+
+      <div class="expertise-card">
+        <div class="expertise-card-title">Emerging Tech</div>
+        <ul class="expertise-skills">
+          <li>Generative AI & LLM-powered Agents</li>
+          <li>Custom GPTs & Workflow Automation</li>
+        </ul>
+      </div>
+
+      <div class="expertise-card">
+        <div class="expertise-card-title">Tools & Technologies</div>
+        <ul class="expertise-skills">
+          <li>Python (Pandas, Scikit-learn, NumPy)</li>
+          <li>SQL, Spark, BigQuery, GCP</li>
+          <li>Tableau, Power BI</li>
+          <li>Databricks, Snowflake</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── TENNIS ── -->
+<section id="tennis">
+  <div class="section-inner">
+    <div class="section-label">Interests · Tennis</div>
+    <h2 class="section-title">Tennis & USTA</h2>
+    <p class="section-sub">A sport that sparked a career, ignited a lifestyle, and never let go.</p>
+
+    <div class="tennis-gallery">
+      <img class="tennis-gallery-img" src="images/tennis-merchandise.jpg" alt="Tennis merchandise" />
+      <img class="tennis-gallery-img" src="images/tennis-halloffame.JPG" alt="Tennis Hall of Fame" />
+      <img class="tennis-gallery-img" src="images/usta-badge.JPG" alt="USTA badge" />
+    </div>
+
+    <div class="tennis-text">
+      <p>When Li Na became the first Asian player to win a Grand Slam title at the French Open in 2011, I was hooked instantly to this sport. Since then, I've watched hundreds of matches, online and in person. My favorite players are Li Na and Victoria Azarenka — two fierce competitors from the golden era of WTA tennis. Their hunger to win, their resilience under pressure, and their incredible personalities have inspired me in ways that go far beyond the sport.</p>
+      <p>And then there's this: my very first professional experience in data science started with tennis. When I was at CMU, I applied for the Data Analytics Intern role at the United States Tennis Association (USTA). After finishing a Tableau take-home challenge analyzing player sideline accuracy — leveraging everything I knew as a 10-year tennis fan — and sharing my story with tennis and data analytics in the interview, I knew that was my moment. I got the role, worked on the upcoming US Open, and built an ARIMA time-series forecasting model to predict US Open store sales. <strong style="font-size:1.2em;font-style:italic;color:var(--charcoal);">That internship was the very beginning of my data science career — and it started with a sport I loved.</strong></p>
+      <p>Tennis also changed how I live. It pulled me into a world of movement — I started learning tennis, discovered a love for physical challenge, and never looked back. It was the beginning of a lifestyle built around energy, discipline, and showing up for myself every day.</p>
     </div>
   </div>
 </section>
@@ -957,134 +1171,109 @@
 <section id="workout">
   <div class="section-inner">
     <div class="section-label">Interests · Fitness</div>
-    <h2 class="section-title">Workout Dashboard</h2>
-    <p class="section-sub">Treating my fitness like a product — measuring consistency, tracking against targets, and iterating on what works.</p>
+    <h2 class="section-title">My Workout Dashboard</h2>
+    <p class="section-sub">Training like I report to a VP.</p>
 
-    <div class="dashboard-grid">
-      <div class="dash-card">
-        <div class="dash-card-label">Consistency Rate</div>
-        <div class="dash-card-value">78%</div>
-        <div class="dash-card-sub">Classes attended vs. scheduled</div>
-        <div class="dash-card-badge">↑ +5% vs last quarter</div>
+    <!-- Top row: studio chart left + KPI cards right -->
+    <div class="workout-top-row">
+
+      <!-- Studio horizontal bar chart (HTML/CSS) -->
+      <div class="studio-chart">
+        <div class="studio-chart-title">Lifetime Classes by Studio</div>
+
+        <div class="studio-bar-row">
+          <div class="studio-bar-label">
+            <img src="https://www.google.com/s2/favicons?domain=janedo.com&sz=32" alt="" />
+            <a href="https://www.janedo.com" target="_blank" rel="noopener">JaneDo</a>
+          </div>
+          <div class="studio-bar-track"><div class="studio-bar-fill" style="width:100%"></div></div>
+          <div class="studio-bar-count">86</div>
+        </div>
+
+        <div class="studio-bar-row">
+          <div class="studio-bar-label">
+            <img src="https://www.google.com/s2/favicons?domain=cyclebar.com&sz=32" alt="" />
+            <a href="https://www.cyclebar.com" target="_blank" rel="noopener">CycleBar</a>
+          </div>
+          <div class="studio-bar-track"><div class="studio-bar-fill" style="width:36%"></div></div>
+          <div class="studio-bar-count">31</div>
+        </div>
+
+        <div class="studio-bar-row">
+          <div class="studio-bar-label">
+            <img src="https://www.google.com/s2/favicons?domain=impactgroupfitness.com&sz=32" alt="" />
+            <a href="https://www.impactgroupfitness.com" target="_blank" rel="noopener">Impact Group Fitness</a>
+          </div>
+          <div class="studio-bar-track"><div class="studio-bar-fill" style="width:33.7%"></div></div>
+          <div class="studio-bar-count">29</div>
+        </div>
+
+        <div class="studio-bar-row">
+          <div class="studio-bar-label">
+            <img src="https://www.google.com/s2/favicons?domain=solidcore.co&sz=32" alt="" />
+            <a href="https://www.solidcore.co" target="_blank" rel="noopener">Solidcore</a>
+          </div>
+          <div class="studio-bar-track"><div class="studio-bar-fill" style="width:22.1%"></div></div>
+          <div class="studio-bar-count">19</div>
+        </div>
+
+        <div class="studio-bar-row">
+          <div class="studio-bar-label">
+            <img src="https://www.google.com/s2/favicons?domain=barre3.com&sz=32" alt="" />
+            <a href="https://barre3.com" target="_blank" rel="noopener">Barre3</a>
+          </div>
+          <div class="studio-bar-track"><div class="studio-bar-fill" style="width:17.4%"></div></div>
+          <div class="studio-bar-count">15</div>
+        </div>
+
+        <div class="studio-bar-row">
+          <div class="studio-bar-label">
+            <span style="width:14px;height:14px;display:inline-block;flex-shrink:0;"></span>
+            <span style="color:var(--warm-mid);">Others</span>
+          </div>
+          <div class="studio-bar-track"><div class="studio-bar-fill" style="width:4.7%;opacity:0.45;"></div></div>
+          <div class="studio-bar-count" style="color:var(--warm-mid);">4</div>
+        </div>
+
+        <div style="margin-top:0.9rem;font-size:0.72rem;color:var(--warm-mid);">Others: Mega JC, Project Sculpt, Sui Yoga</div>
       </div>
-      <div class="dash-card">
-        <div class="dash-card-label">Avg Classes / Month</div>
-        <div class="dash-card-value">14.2</div>
-        <div class="dash-card-sub">Rolling 6-month average</div>
-        <div class="dash-card-badge over">Target: 16/mo</div>
-      </div>
-      <div class="dash-card">
-        <div class="dash-card-label">Best Month</div>
-        <div class="dash-card-value">18</div>
-        <div class="dash-card-sub">January 2026 — New year energy</div>
-        <div class="dash-card-badge">Personal record 🏆</div>
+
+      <!-- KPI Cards (2×2) -->
+      <div class="kpi-grid">
+        <div class="dash-card">
+          <div class="dash-card-label">YTD Minutes</div>
+          <div class="dash-card-value">1,840</div>
+          <div class="dash-card-sub">Feb–Mar 2026</div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-label">YoY Growth</div>
+          <div class="dash-card-value" style="color:#2D7A2D;">+147%</div>
+          <div class="dash-card-sub">vs same period 2025</div>
+          <div class="dash-card-badge">↑ Crushing it</div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-label">MTD Minutes</div>
+          <div class="dash-card-value">830</div>
+          <div class="dash-card-sub">Mar 2026</div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-label">MoM Growth</div>
+          <div class="dash-card-value" style="color:#B03030;">-17.8%</div>
+          <div class="dash-card-sub">Mar vs Feb</div>
+          <div class="dash-card-badge neg">↓ Feb was peak</div>
+        </div>
       </div>
     </div>
 
+    <!-- Time series chart -->
     <div class="chart-area">
-      <h4>Monthly Classes · Oct 2025 – Mar 2026</h4>
-      <canvas id="workoutChart" height="90"></canvas>
-    </div>
-
-    <div class="commentary-grid">
-      <div class="commentary-card">
-        <div class="commentary-month">Oct 2025</div>
-        <div class="commentary-text">Solid foundation — building the habit back after a busy summer. Mostly Pilates and yoga.</div>
-      </div>
-      <div class="commentary-card">
-        <div class="commentary-month">Nov 2025</div>
-        <div class="commentary-text">Holidays sneaked in early. Dipped below target but stayed consistent with weekend runs.</div>
-      </div>
-      <div class="commentary-card">
-        <div class="commentary-month">Dec 2025</div>
-        <div class="commentary-text">Travel mode: only 10 classes but high quality. Added spin to the rotation.</div>
-      </div>
-      <div class="commentary-card">
-        <div class="commentary-month">Jan 2026</div>
-        <div class="commentary-text">Best month ever! New year energy is real. Hit 18 classes — smashed the target.</div>
-      </div>
-      <div class="commentary-card">
-        <div class="commentary-month">Feb 2026</div>
-        <div class="commentary-text">Maintained momentum, added strength training. Slight dip from a work sprint week.</div>
-      </div>
-      <div class="commentary-card">
-        <div class="commentary-month">Mar 2026</div>
-        <div class="commentary-text">On track! Spring energy is here. Goal: end the month at 16+ classes.</div>
+      <h4>Monthly Minutes · Jun 2024 – Mar 2026</h4>
+      <canvas id="workoutChart" height="120"></canvas>
+      <div style="margin-top:0.75rem;font-size:0.75rem;color:var(--warm-mid);font-style:italic;">
+        ⚠ Jan 2026 data pending — excluded from chart
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ── BOOKS ── -->
-<section id="books">
-  <div class="section-inner">
-    <div class="section-label">Interests · Reading</div>
-    <h2 class="section-title">Psychology & Books</h2>
-    <p class="section-sub">I'm drawn to books that explain why people do what they do — from the boardroom to the bedroom.</p>
-
-    <div class="books-grid">
-
-      <div class="book-card">
-        <div class="book-spine" style="background:linear-gradient(135deg,#E8C4A0,#C4704A);">📖</div>
-        <div class="book-info">
-          <div class="book-title">Thinking, Fast and Slow</div>
-          <div class="book-author">Daniel Kahneman</div>
-          <div class="book-stars">★★★★★</div>
-          <div class="book-reflection">Changed how I build metrics — people don't use products rationally, and that's the whole point.</div>
-          <span class="book-tag">cognitive bias</span>
-        </div>
-      </div>
-
-      <div class="book-card">
-        <div class="book-spine" style="background:linear-gradient(135deg,#C4D4A0,#7A9A50);">🌿</div>
-        <div class="book-info">
-          <div class="book-title">Atomic Habits</div>
-          <div class="book-author">James Clear</div>
-          <div class="book-stars">★★★★★</div>
-          <div class="book-reflection">The 1% better concept is behind my whole workout tracking system. Systems over goals.</div>
-          <span class="book-tag">self-improvement</span>
-        </div>
-      </div>
-
-      <div class="book-card">
-        <div class="book-spine" style="background:linear-gradient(135deg,#D0B0D0,#9060A0);">💜</div>
-        <div class="book-info">
-          <div class="book-title">Man's Search for Meaning</div>
-          <div class="book-author">Viktor Frankl</div>
-          <div class="book-stars">★★★★★</div>
-          <div class="book-reflection">A reminder that meaning, not comfort, is what carries us through. I return to it every year.</div>
-          <span class="book-tag">resilience</span>
-        </div>
-      </div>
-
-      <div class="book-card">
-        <div class="book-spine" style="background:linear-gradient(135deg,#A0C4D0,#407A9A);">🌊</div>
-        <div class="book-info">
-          <div class="book-title">The Body Keeps the Score</div>
-          <div class="book-author">Bessel van der Kolk</div>
-          <div class="book-stars">★★★★☆</div>
-          <div class="book-reflection">Eye-opening on how emotions live in the body — made me take movement and rest far more seriously.</div>
-          <span class="book-tag">self-awareness</span>
-        </div>
-      </div>
-
-      <div class="book-card">
-        <div class="book-spine" style="background:linear-gradient(135deg,#F0D080,#C0880A);">✨</div>
-        <div class="book-info">
-          <div class="book-title">Attached</div>
-          <div class="book-author">Amir Levine & Rachel Heller</div>
-          <div class="book-stars">★★★★☆</div>
-          <div class="book-reflection">Attachment theory made practical. Understanding my own style made relationships make so much more sense.</div>
-          <span class="book-tag">relationships</span>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="wordcloud-wrap">
-      <h4>Recurring Themes</h4>
-      <div class="wordcloud" id="wordcloud"></div>
-    </div>
   </div>
 </section>
 
@@ -1097,126 +1286,152 @@
 
     <div id="restaurant-map"></div>
 
-    <div class="foodie-bottom">
-      <div class="restaurant-list">
-        <div class="restaurant-item">
-          <div class="rest-emoji">🍜</div>
-          <div>
-            <div class="rest-name">Xi'an Famous Foods</div>
-            <div class="rest-meta">Hand-ripped noodles · Flushing / Multiple</div>
+    <div class="map-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#9B7CB6"></div>🧋 Milk Tea</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#D4956E"></div>🥐 Pastries</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#C4704A"></div>🥢 Chinese</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#B85A2A"></div>🫕 Korean</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#6B9B5E"></div>🌿 Thai</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#8B6914"></div>🍜 Ramen</div>
+    </div>
+
+    <div class="foodie-tabs">
+      <button class="foodie-tab active" data-cat="milk-tea">🧋 Milk Tea</button>
+      <button class="foodie-tab" data-cat="pastries">🥐 Pastries</button>
+      <button class="foodie-tab" data-cat="chinese">🥢 Chinese</button>
+      <button class="foodie-tab" data-cat="korean">🫕 Korean</button>
+      <button class="foodie-tab" data-cat="thai">🌿 Thai</button>
+      <button class="foodie-tab" data-cat="ramen">🍜 Ramen</button>
+    </div>
+
+    <div class="foodie-panels">
+      <!-- 🧋 Milk Tea -->
+      <div class="foodie-panel active" id="panel-milk-tea">
+        <div class="rest-card">
+          <div class="rest-card-header">
+            <span class="rest-card-emoji">🧋</span>
+            <a class="rest-card-name" href="https://www.yelp.com/biz/artisan-flushing" target="_blank" rel="noopener noreferrer">Artisan Milk Tea</a>
           </div>
-          <div class="rest-rating">★★★★★</div>
+          <div class="rest-card-note">Classic Taiwanese milk tea done right · Flushing</div>
         </div>
-        <div class="restaurant-item">
-          <div class="rest-emoji">🍣</div>
-          <div>
-            <div class="rest-name">Sushi Nakazawa</div>
-            <div class="rest-meta">Omakase · West Village</div>
+        <div class="rest-card">
+          <div class="rest-card-header">
+            <span class="rest-card-emoji">🧋</span>
+            <a class="rest-card-name" href="https://usa.mollytea.com/" target="_blank" rel="noopener noreferrer">Molly Tea</a>
           </div>
-          <div class="rest-rating">★★★★★</div>
-        </div>
-        <div class="restaurant-item">
-          <div class="rest-emoji">🥐</div>
-          <div>
-            <div class="rest-name">Via Carota</div>
-            <div class="rest-meta">Italian · West Village</div>
-          </div>
-          <div class="rest-rating">★★★★★</div>
-        </div>
-        <div class="restaurant-item">
-          <div class="rest-emoji">🌮</div>
-          <div>
-            <div class="rest-name">Los Tacos No. 1</div>
-            <div class="rest-meta">Mexican · Chelsea Market</div>
-          </div>
-          <div class="rest-rating">★★★★☆</div>
-        </div>
-        <div class="restaurant-item">
-          <div class="rest-emoji">🍛</div>
-          <div>
-            <div class="rest-name">Gramercy Tavern</div>
-            <div class="rest-meta">American · Gramercy</div>
-          </div>
-          <div class="rest-rating">★★★★☆</div>
-        </div>
-        <div class="restaurant-item">
-          <div class="rest-emoji">🥟</div>
-          <div>
-            <div class="rest-name">Joe's Shanghai</div>
-            <div class="rest-meta">Shanghainese · Flushing</div>
-          </div>
-          <div class="rest-rating">★★★★☆</div>
+          <div class="rest-card-note">Artisanal teas with beautiful seasonal specials · Flushing</div>
         </div>
       </div>
 
-      <div class="donut-wrap">
-        <h4>Cuisine Distribution</h4>
-        <canvas id="cuisineChart"></canvas>
+      <!-- 🥐 Pastries -->
+      <div class="foodie-panel" id="panel-pastries">
+        <div class="rest-card">
+          <div class="rest-card-header">
+            <span class="rest-card-emoji">🥐</span>
+            <a class="rest-card-name" href="https://www.andopatisserie-official.com/" target="_blank" rel="noopener noreferrer">ANDO Patisserie</a>
+          </div>
+          <div class="rest-card-note">Japanese-French pastries with stunning craft · Lower East Side</div>
+        </div>
+        <div class="rest-card">
+          <div class="rest-card-header">
+            <span class="rest-card-emoji">🥐</span>
+            <a class="rest-card-name" href="https://www.rubyscafe.com/" target="_blank" rel="noopener noreferrer">Little Ruby's</a>
+          </div>
+          <div class="rest-card-note">Cozy all-day café with killer pastries · SoHo</div>
+        </div>
+      </div>
+
+      <!-- 🥢 Chinese -->
+      <div class="foodie-panel" id="panel-chinese">
+        <div class="rest-card">
+          <div class="rest-card-header">
+            <span class="rest-card-emoji">🥢</span>
+            <a class="rest-card-name" href="https://www.meetfresh.net/" target="_blank" rel="noopener noreferrer">Meet Fresh</a>
+          </div>
+          <div class="rest-card-note">Taiwanese desserts & taro balls, the real deal · Flushing</div>
+        </div>
+        <div class="rest-card">
+          <div class="rest-card-header">
+            <span class="rest-card-emoji">🥢</span>
+            <a class="rest-card-name" href="https://www.chongqinglaozao.com/" target="_blank" rel="noopener noreferrer">Chongqing Lao Zao</a>
+          </div>
+          <div class="rest-card-note">Authentic Chongqing hotpot & street food — tastes like home · Flushing</div>
+        </div>
+      </div>
+
+      <!-- 🫕 Korean -->
+      <div class="foodie-panel" id="panel-korean">
+        <div class="rest-card">
+          <div class="rest-card-header">
+            <span class="rest-card-emoji">🫕</span>
+            <a class="rest-card-name" href="https://www.chicadon.com/" target="_blank" rel="noopener noreferrer">Chica Sanchez</a>
+          </div>
+          <div class="rest-card-note">Korean-Mexican fusion with bold, unapologetic flavors · Midtown</div>
+        </div>
+        <div class="rest-card">
+          <div class="rest-card-header">
+            <span class="rest-card-emoji">🫕</span>
+            <a class="rest-card-name" href="https://www.ladongnyc.com/" target="_blank" rel="noopener noreferrer">La Dong</a>
+          </div>
+          <div class="rest-card-note">Korean comfort dishes, homestyle and hearty · Midtown</div>
+        </div>
+        <div class="rest-card">
+          <div class="rest-card-header">
+            <span class="rest-card-emoji">🫕</span>
+            <a class="rest-card-name" href="https://gopchangstorynyc.com/" target="_blank" rel="noopener noreferrer">Gopchang Story</a>
+          </div>
+          <div class="rest-card-note">Korean beef tripe BBQ — a true dive experience · Flushing</div>
+        </div>
+        <div class="rest-card">
+          <div class="rest-card-header">
+            <span class="rest-card-emoji">🫕</span>
+            <a class="rest-card-name" href="https://www.tosokchonnyc.com/" target="_blank" rel="noopener noreferrer">Tosokchon NYC</a>
+          </div>
+          <div class="rest-card-note">Samgyetang (ginseng chicken soup) worth every trip · K-Town</div>
+        </div>
+      </div>
+
+      <!-- 🌿 Thai -->
+      <div class="foodie-panel" id="panel-thai">
+        <div class="rest-card">
+          <div class="rest-card-header">
+            <span class="rest-card-emoji">🌿</span>
+            <a class="rest-card-name" href="https://www.saitongthai.com/" target="_blank" rel="noopener noreferrer">SaiTong Thai</a>
+          </div>
+          <div class="rest-card-note">Northern Thai cuisine rich with fresh herbs and spice · UES</div>
+        </div>
+      </div>
+
+      <!-- 🍜 Ramen -->
+      <div class="foodie-panel" id="panel-ramen">
+        <div class="rest-card">
+          <div class="rest-card-header">
+            <span class="rest-card-emoji">🍜</span>
+            <a class="rest-card-name" href="https://www.ichiranusa.com/" target="_blank" rel="noopener noreferrer">Ichiran</a>
+          </div>
+          <div class="rest-card-note">Solo ramen booths, tonkotsu perfected in silence · Hell's Kitchen</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── PARTNER ── -->
-<section id="partner">
+<!-- ── CONTACT ── -->
+<section id="contact">
   <div class="section-inner">
-    <div class="section-label">Life</div>
-    <h2 class="section-title">Me & My Partner</h2>
-    <p class="section-sub">Two people, many cities, one shared sense of adventure.</p>
-
-    <div class="partner-grid">
-      <div>
-        <div id="partner-map"></div>
-      </div>
-
-      <div class="partner-timeline">
-        <h3>Our Story</h3>
-        <p class="partner-desc">
-          We found each other in New York — two people who had both crossed oceans to get here. Since then, we've been collecting stamps, trying new foods, and figuring out life together, one city at a time.
-        </p>
-
-        <div class="milestone-list">
-          <div class="milestone-item">
-            <div class="milestone-icon">💛</div>
-            <div>
-              <div class="milestone-date">2021 · New York</div>
-              <div class="milestone-text">Met in the city that never sleeps — and somehow found each other in the crowd.</div>
-            </div>
-          </div>
-          <div class="milestone-item">
-            <div class="milestone-icon">✈️</div>
-            <div>
-              <div class="milestone-date">2022 · First Trip Together</div>
-              <div class="milestone-text">Tokyo — our first big adventure. Confirmed we travel well together (crucial test).</div>
-            </div>
-          </div>
-          <div class="milestone-item">
-            <div class="milestone-icon">🏠</div>
-            <div>
-              <div class="milestone-date">2023 · Moving In</div>
-              <div class="milestone-text">Merged bookshelves, found a favorite Sunday coffee spot. The real adventure began.</div>
-            </div>
-          </div>
-          <div class="milestone-item">
-            <div class="milestone-icon">🌍</div>
-            <div>
-              <div class="milestone-date">2024 · Europe Chapter</div>
-              <div class="milestone-text">Paris, Barcelona, Lisbon — slow travel, good wine, even better company.</div>
-            </div>
-          </div>
-          <div class="milestone-item">
-            <div class="milestone-icon">⭐</div>
-            <div>
-              <div class="milestone-date">2025 · Ongoing</div>
-              <div class="milestone-text">Building a life in New York, with a long list of places still to go.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="partner-link-card">
-          <span>Check out my partner's work</span>
-          <a href="#">Visit website →</a>
-        </div>
+    <div class="contact-inner">
+      <div class="section-label">Connect</div>
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="contact-desc">Whether it's about data, tennis, food, or anything in between — I'd love to hear from you.</p>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:jingyiran1@gmail.com">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          jingyiran1@gmail.com
+        </a>
+        <a class="contact-link" href="https://www.linkedin.com/in/jingyiran/" target="_blank" rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
       </div>
     </div>
   </div>
@@ -1225,17 +1440,13 @@
 <!-- ── FOOTER ── -->
 <footer>
   <div class="footer-name">Jingyi Ran</div>
-  <div class="footer-role">Product Data Scientist · New York City</div>
+  <div class="footer-role">Data Scientist · New York City</div>
   <div class="footer-links">
-    <a class="footer-link" href="https://www.linkedin.com/in/jingyi-ran" target="_blank">
+    <a class="footer-link" href="https://www.linkedin.com/in/jingyiran/" target="_blank">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
       LinkedIn
     </a>
-    <a class="footer-link" href="https://github.com/jingyiran1" target="_blank">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-      GitHub
-    </a>
-    <a class="footer-link" href="mailto:hello@jingyiran.com">
+    <a class="footer-link" href="mailto:jingyiran1@gmail.com">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       Email
     </a>
@@ -1249,237 +1460,186 @@
 <script>
 /* ── Workout Chart ── */
 (function() {
-  const ctx = document.getElementById('workoutChart').getContext('2d');
-  const months = ['Oct 2025','Nov 2025','Dec 2025','Jan 2026','Feb 2026','Mar 2026'];
-  const actual  = [13, 11, 10, 18, 15, 14];
-  const target  = [16, 16, 16, 16, 16, 16];
+  const labels = [
+    'Jun 24','Jul 24','Aug 24','Sep 24','Oct 24','Nov 24','Dec 24',
+    'Jan 25','Feb 25','Mar 25','Apr 25','May 25','Jun 25','Jul 25','Aug 25','Sep 25','Oct 25','Nov 25','Dec 25',
+    'Feb 26','Mar 26'
+  ];
 
+  const minutes = [335,375,555,370,525,395,465,415,450,295,400,320,365,385,250,150,150,450,330,1010,830];
+  const okr     = [100,100,100,100,100,100,100,300,300,300,300,300,300,300,300,300,300,300,300,450,450];
+  const cpw     = [1.6,1.9,2.8,1.9,2.6,1.9,2.3,2.1,2.1,1.4,1.9,1.4,1.6,1.9,1.2,0.7,0.7,2.1,1.6,4.9,4.0];
+
+  const ctx = document.getElementById('workoutChart').getContext('2d');
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: months,
+      labels,
       datasets: [
         {
-          label: 'Classes Attended',
-          data: actual,
-          backgroundColor: actual.map(v => v >= 16 ? 'rgba(196,112,74,0.85)' : 'rgba(196,112,74,0.5)'),
+          label: 'Monthly Minutes',
+          data: minutes,
+          backgroundColor: minutes.map((v, i) => v >= okr[i] ? 'rgba(196,112,74,0.85)' : 'rgba(196,112,74,0.42)'),
           borderColor: 'rgba(196,112,74,1)',
           borderWidth: 1,
-          borderRadius: 6,
+          borderRadius: 5,
           borderSkipped: false,
+          yAxisID: 'y',
+          order: 3,
         },
         {
-          label: 'Monthly Target',
-          data: target,
+          label: 'OKR Target (mins)',
+          data: okr,
           type: 'line',
-          borderColor: 'rgba(196,112,74,0.35)',
-          borderDash: [6,4],
+          borderColor: 'rgba(200,55,55,0.85)',
           borderWidth: 2,
+          borderDash: [5, 3],
           pointRadius: 0,
           fill: false,
-          tension: 0,
-        }
+          stepped: 'before',
+          yAxisID: 'y',
+          order: 1,
+        },
+        {
+          label: 'Classes / Week',
+          data: cpw,
+          type: 'line',
+          borderColor: 'rgba(200,160,20,0.95)',
+          backgroundColor: 'rgba(200,160,20,0.08)',
+          borderWidth: 2,
+          pointRadius: 3,
+          pointBackgroundColor: 'rgba(200,160,20,0.95)',
+          pointBorderColor: 'white',
+          pointBorderWidth: 1,
+          fill: false,
+          tension: 0.35,
+          yAxisID: 'y1',
+          order: 0,
+        },
       ]
     },
     options: {
       responsive: true,
+      interaction: { mode: 'index', intersect: false },
       plugins: {
         legend: {
           labels: {
             font: { family: 'Inter', size: 12 },
             color: '#7A6F68',
+            usePointStyle: true,
+            padding: 18,
           }
         },
         tooltip: {
           callbacks: {
-            label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y} classes`
+            label: c => {
+              if (c.dataset.label === 'Classes / Week') return `  Classes/Week: ${c.parsed.y}`;
+              if (c.dataset.label === 'OKR Target (mins)') return `  OKR Target: ${c.parsed.y} mins`;
+              return `  Minutes: ${c.parsed.y}`;
+            }
           }
         }
       },
       scales: {
         x: {
           grid: { display: false },
-          ticks: { font: { family:'Inter', size:12 }, color:'#9B9490' }
+          ticks: { font: { family: 'Inter', size: 11 }, color: '#9B9490', maxRotation: 45 }
         },
         y: {
-          min: 0, max: 22,
+          position: 'left',
+          min: 0,
           grid: { color: 'rgba(0,0,0,0.05)' },
-          ticks: { font: { family:'Inter', size:12 }, color:'#9B9490', stepSize:4 }
+          ticks: { font: { family: 'Inter', size: 11 }, color: '#9B9490' },
+          title: { display: true, text: 'Minutes', font: { family: 'Inter', size: 11 }, color: '#9B9490' }
+        },
+        y1: {
+          position: 'right',
+          min: 0,
+          max: 7,
+          grid: { drawOnChartArea: false },
+          ticks: { font: { family: 'Inter', size: 11 }, color: 'rgba(200,160,20,0.9)' },
+          title: { display: true, text: 'Classes / Week', font: { family: 'Inter', size: 11 }, color: 'rgba(200,160,20,0.9)' }
         }
       }
     }
-  });
-})();
-
-/* ── Word Cloud ── */
-(function() {
-  const words = [
-    { text: 'resilience',      size: 28, w: 700 },
-    { text: 'self-awareness',  size: 22, w: 400 },
-    { text: 'habit',           size: 24, w: 600 },
-    { text: 'meaning',         size: 20, w: 400 },
-    { text: 'relationships',   size: 22, w: 500 },
-    { text: 'behavior',        size: 18, w: 400 },
-    { text: 'growth',          size: 24, w: 600 },
-    { text: 'systems',         size: 18, w: 400 },
-    { text: 'identity',        size: 20, w: 500 },
-    { text: 'curiosity',       size: 26, w: 600 },
-    { text: 'attachment',      size: 18, w: 400 },
-    { text: 'mindset',         size: 22, w: 500 },
-    { text: 'trauma',          size: 16, w: 400 },
-    { text: 'motivation',      size: 20, w: 400 },
-    { text: 'patterns',        size: 18, w: 400 },
-    { text: 'connection',      size: 22, w: 500 },
-  ];
-
-  const container = document.getElementById('wordcloud');
-  words.forEach(w => {
-    const el = document.createElement('span');
-    el.className = 'word-chip';
-    el.textContent = w.text;
-    el.style.fontSize = w.size + 'px';
-    el.style.fontWeight = w.w;
-    el.style.padding = `${Math.round(w.size * 0.22)}px ${Math.round(w.size * 0.55)}px`;
-    container.appendChild(el);
   });
 })();
 
 /* ── Restaurant Map (Leaflet) ── */
 (function() {
   const map = L.map('restaurant-map', { zoomControl: true, scrollWheelZoom: false })
-                .setView([40.73, -73.99], 12);
+                .setView([40.73, -73.97], 12);
 
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '© OpenStreetMap contributors © CARTO',
     maxZoom: 18,
   }).addTo(map);
 
-  const orangeIcon = L.divIcon({
-    html: '<div style="width:22px;height:22px;background:#C4704A;border:3px solid white;border-radius:50%;box-shadow:0 2px 8px rgba(196,112,74,0.5)"></div>',
-    iconSize: [22, 22],
-    iconAnchor: [11, 11],
-    className: '',
-  });
+  const CAT_COLORS = {
+    'milk-tea': '#9B7CB6',
+    'pastries': '#D4956E',
+    'chinese':  '#C4704A',
+    'korean':   '#B85A2A',
+    'thai':     '#6B9B5E',
+    'ramen':    '#8B6914',
+  };
+
+  const CAT_LABELS = {
+    'milk-tea': '🧋 Milk Tea',
+    'pastries': '🥐 Pastries',
+    'chinese':  '🥢 Chinese',
+    'korean':   '🫕 Korean',
+    'thai':     '🌿 Thai',
+    'ramen':    '🍜 Ramen',
+  };
+
+  function makeIcon(color) {
+    return L.divIcon({
+      html: `<div style="width:20px;height:20px;background:${color};border:3px solid white;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.25)"></div>`,
+      iconSize: [20, 20],
+      iconAnchor: [10, 10],
+      className: '',
+    });
+  }
 
   const restaurants = [
-    { lat: 40.7614, lng: -73.9776, name: "Xi'an Famous Foods", cuisine: 'Chinese Noodles', rating: '★★★★★', emoji: '🍜', note: 'Best spicy cumin lamb noodles in the city' },
-    { lat: 40.7328, lng: -74.0030, name: 'Sushi Nakazawa',     cuisine: 'Japanese Omakase', rating: '★★★★★', emoji: '🍣', note: 'An unforgettable experience — save for special occasions' },
-    { lat: 40.7337, lng: -74.0027, name: 'Via Carota',         cuisine: 'Italian', rating: '★★★★★', emoji: '🥐', note: 'The cacio e pepe is perfection. Always a wait, always worth it' },
-    { lat: 40.7424, lng: -74.0040, name: 'Los Tacos No. 1',    cuisine: 'Mexican', rating: '★★★★☆', emoji: '🌮', note: 'No frills, all flavor. The al pastor is transcendent' },
-    { lat: 40.7379, lng: -73.9883, name: 'Gramercy Tavern',    cuisine: 'American', rating: '★★★★☆', emoji: '🍽️', note: 'The tavern room is a New York institution. Try the charcuterie' },
-    { lat: 40.7597, lng: -73.8322, name: "Joe's Shanghai",     cuisine: 'Shanghainese', rating: '★★★★☆', emoji: '🥟', note: 'Soup dumplings so good they need their own category' },
+    { lat: 40.7573, lng: -73.8305, cat: 'milk-tea', emoji: '🧋', name: 'Artisan Milk Tea',    url: 'https://www.yelp.com/biz/artisan-flushing',         note: 'Classic Taiwanese milk tea done right · Flushing' },
+    { lat: 40.7582, lng: -73.8297, cat: 'milk-tea', emoji: '🧋', name: 'Molly Tea',            url: 'https://usa.mollytea.com/',                          note: 'Artisanal teas with seasonal specials · Flushing' },
+    { lat: 40.7163, lng: -73.9905, cat: 'pastries', emoji: '🥐', name: 'ANDO Patisserie',      url: 'https://www.andopatisserie-official.com/',           note: 'Japanese-French pastries with stunning craft · LES' },
+    { lat: 40.7220, lng: -74.0001, cat: 'pastries', emoji: '🥐', name: "Little Ruby's",        url: 'https://www.rubyscafe.com/',                         note: 'Cozy all-day café with killer pastries · SoHo' },
+    { lat: 40.7599, lng: -73.8286, cat: 'chinese',  emoji: '🥢', name: 'Meet Fresh',           url: 'https://www.meetfresh.net/',                         note: 'Taiwanese desserts & taro balls · Flushing' },
+    { lat: 40.7575, lng: -73.8325, cat: 'chinese',  emoji: '🥢', name: 'Chongqing Lao Zao',   url: 'https://www.chongqinglaozao.com/',                   note: 'Chongqing hotpot & street food · Flushing' },
+    { lat: 40.7505, lng: -73.9860, cat: 'korean',   emoji: '🫕', name: 'Chica Sanchez',        url: 'https://www.chicadon.com/',                          note: 'Korean-Mexican fusion · Midtown' },
+    { lat: 40.7510, lng: -73.9875, cat: 'korean',   emoji: '🫕', name: 'La Dong',              url: 'https://www.ladongnyc.com/',                         note: 'Korean comfort dishes · Midtown' },
+    { lat: 40.7580, lng: -73.8310, cat: 'korean',   emoji: '🫕', name: 'Gopchang Story',       url: 'https://gopchangstorynyc.com/',                      note: 'Korean beef tripe BBQ · Flushing' },
+    { lat: 40.7490, lng: -73.9868, cat: 'korean',   emoji: '🫕', name: 'Tosokchon NYC',        url: 'https://www.tosokchonnyc.com/',                      note: 'Samgyetang (ginseng chicken soup) · K-Town' },
+    { lat: 40.7610, lng: -73.9680, cat: 'thai',     emoji: '🌿', name: 'SaiTong Thai',         url: 'https://www.saitongthai.com/',                       note: 'Northern Thai cuisine · UES' },
+    { lat: 40.7616, lng: -73.9889, cat: 'ramen',    emoji: '🍜', name: 'Ichiran',              url: 'https://www.ichiranusa.com/',                        note: "Solo ramen booths, tonkotsu perfected · Hell's Kitchen" },
   ];
 
   restaurants.forEach(r => {
-    const marker = L.marker([r.lat, r.lng], { icon: orangeIcon }).addTo(map);
+    const marker = L.marker([r.lat, r.lng], { icon: makeIcon(CAT_COLORS[r.cat]) }).addTo(map);
     marker.bindPopup(`
       <div style="font-family:Inter,sans-serif;padding:2px 0">
-        <div style="font-size:1.3rem;margin-bottom:4px">${r.emoji}</div>
-        <div class="popup-title">${r.name}</div>
-        <div class="popup-meta">${r.cuisine}</div>
-        <div class="popup-rating" style="margin:4px 0">${r.rating}</div>
-        <div style="font-size:0.78rem;color:#7A6F68;max-width:160px;line-height:1.4">${r.note}</div>
+        <div style="font-size:1.1rem;margin-bottom:4px">${r.emoji} <span style="font-size:0.75rem;color:#9B9490;font-weight:500">${CAT_LABELS[r.cat]}</span></div>
+        <div class="popup-title"><a href="${r.url}" target="_blank" rel="noopener noreferrer" style="color:#2C2420;text-decoration:none" onmouseover="this.style.color='#C4704A'" onmouseout="this.style.color='#2C2420'">${r.name}</a></div>
+        <div style="font-size:0.77rem;color:#7A6F68;max-width:160px;line-height:1.4;margin-top:4px">${r.note}</div>
       </div>
-    `, { maxWidth: 200 });
+    `, { maxWidth: 210 });
   });
 })();
 
-/* ── Cuisine Donut Chart ── */
+/* ── Foodie Tabs ── */
 (function() {
-  const ctx = document.getElementById('cuisineChart').getContext('2d');
-  new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-      labels: ['Chinese', 'Japanese', 'Italian', 'Mexican', 'American'],
-      datasets: [{
-        data: [2, 1, 1, 1, 1],
-        backgroundColor: [
-          '#C4704A',
-          '#D4956E',
-          '#E0B896',
-          '#8B5E3C',
-          '#B8A090',
-        ],
-        borderColor: '#FAF8F5',
-        borderWidth: 3,
-      }]
-    },
-    options: {
-      cutout: '65%',
-      plugins: {
-        legend: {
-          position: 'bottom',
-          labels: {
-            font: { family: 'Inter', size: 11 },
-            color: '#7A6F68',
-            padding: 12,
-            usePointStyle: true,
-            pointStyleWidth: 8,
-          }
-        }
-      }
-    }
-  });
-})();
-
-/* ── Partner Map (Leaflet with arc paths) ── */
-(function() {
-  const map = L.map('partner-map', { zoomControl: false, scrollWheelZoom: false })
-               .setView([30, 10], 1.5);
-
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution: '© OpenStreetMap contributors © CARTO',
-    maxZoom: 10,
-  }).addTo(map);
-
-  const pinkIcon = L.divIcon({
-    html: '<div style="width:16px;height:16px;background:#C4704A;border:3px solid white;border-radius:50%;box-shadow:0 2px 6px rgba(196,112,74,0.45)"></div>',
-    iconSize: [16, 16],
-    iconAnchor: [8, 8],
-    className: '',
-  });
-
-  const cities = [
-    { lat: 40.71, lng: -74.01, name: 'New York' },
-    { lat: 35.68, lng: 139.69, name: 'Tokyo' },
-    { lat: 48.85, lng:   2.35, name: 'Paris' },
-    { lat: 41.39, lng:   2.15, name: 'Barcelona' },
-    { lat: 38.72, lng:  -9.14, name: 'Lisbon' },
-    { lat: 39.91, lng: 116.39, name: 'Beijing' },
-  ];
-
-  // Draw arc-like lines between NYC and each other city
-  const nyc = cities[0];
-  cities.slice(1).forEach(city => {
-    // Simple great-circle approximation with midpoint offset
-    const midLat = (nyc.lat + city.lat) / 2 + 15;
-    const midLng = (nyc.lng + city.lng) / 2;
-
-    // Create a curved path using intermediate points
-    const points = [];
-    for (let t = 0; t <= 1; t += 0.05) {
-      const lat = (1-t)*(1-t)*nyc.lat + 2*(1-t)*t*midLat + t*t*city.lat;
-      const lng = (1-t)*(1-t)*nyc.lng + 2*(1-t)*t*midLng + t*t*city.lng;
-      points.push([lat, lng]);
-    }
-
-    L.polyline(points, {
-      color: '#C4704A',
-      weight: 1.5,
-      opacity: 0.55,
-      dashArray: '5,5',
-    }).addTo(map);
-  });
-
-  cities.forEach(city => {
-    L.marker([city.lat, city.lng], { icon: pinkIcon })
-     .bindTooltip(city.name, {
-       permanent: false,
-       direction: 'top',
-       className: '',
-       offset: [0, -10],
-     })
-     .addTo(map);
+  const tabs   = document.querySelectorAll('.foodie-tab');
+  const panels = document.querySelectorAll('.foodie-panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.cat).classList.add('active');
+    });
   });
 })();
 </script>
